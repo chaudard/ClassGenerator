@@ -11,7 +11,8 @@ uses
   UnitConst in 'UnitConst.pas',
   TechnoType in 'Models\TechnoType.pas',
   GeneratorInterface in 'Models\GeneratorInterface.pas',
-  DelphiGenerator in 'Models\DelphiGenerator.pas';
+  DelphiGenerator in 'Models\DelphiGenerator.pas',
+  TechnoGenerator in 'Models\TechnoGenerator.pas';
 
 {$R *.res}
 

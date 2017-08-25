@@ -53,6 +53,7 @@
 			<DCCReference Include="Models\TechnoType.pas"/>
 			<DCCReference Include="Models\GeneratorInterface.pas"/>
 			<DCCReference Include="Models\DelphiGenerator.pas"/>
+			<DCCReference Include="Models\TechnoGenerator.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

@@ -30,7 +30,9 @@ uses
   sysUtils,
   PropertyObj,
   GeneratorInterface,
-  DelphiGenerator;
+  DelphiGenerator
+  ,windows // for outputdebugstring
+  ;
 
 { TController }
 
@@ -61,12 +63,24 @@ begin
     result := true;
   end;
 end;
-
+{
+procedure TestUseInterface(iInt: IInterface);
+var
+  iClassGen: IClassGenerator;
+begin
+  if supports(iInt, iClassGenerator, iClassGen) then
+  begin
+    outputdebugstring('use iClassGen');
+    iClassGen := nil;
+  end;
+end;
+}
 class function TController.getClassGeneration(
   const aTechnoType: TTechnoType;
   const aGenerator: TGenerator): TStringList;
 var
-  iClassGen: iClassGenerator;
+  iClassGen: IClassGenerator;
+  vDcg: TDelphiClassGenerator;
 begin
   result := nil;
   if assigned(aGenerator) then
@@ -74,8 +88,12 @@ begin
     case aTechnoType of
       ttDelphi:
       begin
-        iClassGen := TDelphiClassGenerator.Create(aGenerator);
+        vDcg :=  TDelphiClassGenerator.Create(aGenerator);
+        iClassGen := vDcg;
         result := iClassGen.generate;
+        //TestUseInterface(iClassGen);
+        iClassGen := nil;
+        vDcg.Free;
       end;
       ttCs:
       begin
