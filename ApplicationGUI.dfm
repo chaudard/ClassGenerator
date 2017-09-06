@@ -49,6 +49,7 @@ object ApplicationGUIForm: TApplicationGUIForm
     Width = 135
     Height = 21
     TabOrder = 0
+    OnChange = edClassNameChange
   end
   object edPropertyName: TEdit
     Left = 74
@@ -178,7 +179,6 @@ object ApplicationGUIForm: TApplicationGUIForm
     Top = 405
     Width = 409
     Height = 269
-    Enabled = False
     TabOrder = 12
   end
 end

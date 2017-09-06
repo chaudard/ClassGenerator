@@ -43,6 +43,7 @@ type
     procedure sgPropertiesKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure btGenerateClassClick(Sender: TObject);
+    procedure edClassNameChange(Sender: TObject);
   private
     { Déclarations privées }
     FClassGenerator: TGenerator;
@@ -213,6 +214,11 @@ begin
   end
   else
     showmessage(MSG_PROPERTY_FIELD_EMPTY);
+end;
+
+procedure TApplicationGUIForm.edClassNameChange(Sender: TObject);
+begin
+  FClassGenerator.name := edClassName.Text;
 end;
 
 procedure TApplicationGUIForm.edPropertyNameKeyDown(Sender: TObject;

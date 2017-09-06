@@ -24,11 +24,16 @@ type TTechnoClassGenerator = class(TObject,
     function _Release: Integer; stdcall;
 
     function generate: TStringList; virtual; abstract;
+
+    class function UpperFirstLetter(const aString: string): string;
 end;
 
 implementation
 
 { TTechnoClassGenerator }
+
+uses
+    sysUtils;
 
 constructor TTechnoClassGenerator.Create;
 begin
@@ -55,6 +60,20 @@ begin
     Result := S_OK
   else
     Result := S_FALSE;
+end;
+
+class function TTechnoClassGenerator.UpperFirstLetter(
+  const aString: string): string;
+begin
+  result := '';
+  if aString <> '' then
+  begin
+    result := UpperCase(Copy(aString, 1, 1));
+    if Length(aString) > 1 then
+    begin
+      result := result + Copy(aString, 2, Length(aString) - 1);
+    end;
+  end;
 end;
 
 function TTechnoClassGenerator._AddRef: Integer;
