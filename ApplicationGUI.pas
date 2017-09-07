@@ -29,6 +29,7 @@ type
     cbTechno: TComboBox;
     btGenerateClass: TButton;
     memoResultGeneration: TMemo;
+    btnCopyToClipBoard: TButton;
     procedure btAddPropertyClick(Sender: TObject);
     procedure sgPropertiesDrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
@@ -44,6 +45,7 @@ type
       Shift: TShiftState);
     procedure btGenerateClassClick(Sender: TObject);
     procedure edClassNameChange(Sender: TObject);
+    procedure btnCopyToClipBoardClick(Sender: TObject);
   private
     { Déclarations privées }
     FClassGenerator: TGenerator;
@@ -106,6 +108,12 @@ begin
     memoResultGeneration.Lines.AddStrings(vResult);
     vResult.Free;
   end;
+end;
+
+procedure TApplicationGUIForm.btnCopyToClipBoardClick(Sender: TObject);
+begin
+  memoResultGeneration.SelectAll;
+  memoResultGeneration.CopyToClipboard;
 end;
 
 function TApplicationGUIForm.canModify(const aIndex: integer; const aTypeModification: integer): boolean;

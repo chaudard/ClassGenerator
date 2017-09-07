@@ -13,6 +13,9 @@ object ApplicationGUIForm: TApplicationGUIForm
   OldCreateOrder = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  DesignSize = (
+    440
+    682)
   PixelsPerInch = 96
   TextHeight = 13
   object lbClassName: TLabel
@@ -168,7 +171,7 @@ object ApplicationGUIForm: TApplicationGUIForm
   object btGenerateClass: TButton
     Left = 167
     Top = 374
-    Width = 258
+    Width = 146
     Height = 25
     Caption = 'generate class'
     TabOrder = 11
@@ -179,6 +182,17 @@ object ApplicationGUIForm: TApplicationGUIForm
     Top = 405
     Width = 409
     Height = 269
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    ScrollBars = ssBoth
     TabOrder = 12
+  end
+  object btnCopyToClipBoard: TButton
+    Left = 312
+    Top = 374
+    Width = 113
+    Height = 25
+    Caption = 'copy to clipboard'
+    TabOrder = 13
+    OnClick = btnCopyToClipBoardClick
   end
 end
